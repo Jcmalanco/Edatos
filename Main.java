@@ -1,103 +1,116 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int choice = -1;
+        int opcionMenu;
 
-        // Menú de selección de tipo de lista
-        while (true) {
-            try {
-                System.out.println("Selecciona el tipo de lista:");
-                System.out.println("1. Simplemente enlazada");
-                System.out.println("2. Doblemente enlazada");
-                System.out.println("3. Circular simplemente enlazada");
-                System.out.println("4. Circular doblemente enlazada");
-                System.out.print("Opción: ");
-                choice = sc.nextInt();
-                sc.nextLine();
-
-                if (choice >= 1 && choice <= 4) {
-                    break;
-                } else {
-                    System.out.println("Opción inválida, intenta nuevamente.\n");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Entrada inválida. Por favor ingrese un número.\n");
-                sc.nextLine(); // limpiar buffer
-            }
-        }
-
-        boolean isDoubly = (choice == 2 || choice == 4);
-        boolean isCircular = (choice == 3 || choice == 4);
-
-        LinkedList<Object> list = new LinkedList<>(isDoubly, isCircular);
-
-        int option = -1;
         do {
-            try {
-                System.out.println("\n--- Menú ---");
-                System.out.println("1. Insertar elemento");
-                System.out.println("2. Eliminar elemento");
-                System.out.println("3. Buscar elemento");
-                System.out.println("4. Mostrar lista");
-                System.out.println("5. Ejemplo con primitivos");
-                System.out.println("6. Ejemplo con cadenas");
-                System.out.println("7. Ejemplo con contactos");
-                System.out.println("0. Salir");
-                System.out.print("Opción: ");
-                option = sc.nextInt();
-                sc.nextLine();
+            System.out.println("\n=== MENU PRINCIPAL ===");
+            System.out.println("1. Listas Ligadas");
+            System.out.println("2. Pila");
+            System.out.println("3. Cola");
+            System.out.println("4. Salir");
+            System.out.print("Elige una opción: ");
+            opcionMenu = sc.nextInt();
 
-                switch (option) {
-                    case 1:
-                        System.out.print("Ingrese el dato (como texto): ");
-                        String data = sc.nextLine();
-                        list.insert(data);
-                        System.out.println("Elemento insertado.");
-                        break;
-                    case 2:
-                        System.out.print("Dato a eliminar: ");
-                        String delData = sc.nextLine();
-                        if (list.delete(delData)) {
-                            System.out.println("Eliminado correctamente.");
-                        } else {
-                            System.out.println("No encontrado.");
-                        }
-                        break;
-                    case 3:
-                        System.out.print("Dato a buscar: ");
-                        String searchData = sc.nextLine();
-                        System.out.println(list.search(searchData) ? "Encontrado." : "No encontrado.");
-                        break;
-                    case 4:
-                        list.display();
-                        break;
-                    case 5:
-                        DataTypeExamples.primitiveExample((LinkedList<Integer>)(LinkedList<?>)list);
-                        System.out.println("Ejemplo de enteros agregado.");
-                        break;
-                    case 6:
-                        DataTypeExamples.stringExample((LinkedList<String>)(LinkedList<?>)list);
-                        System.out.println("Ejemplo de cadenas agregado.");
-                        break;
-                    case 7:
-                        DataTypeExamples.contactExample((LinkedList<DataTypeExamples.Contact>)(LinkedList<?>)list);
-                        System.out.println("Ejemplo de contactos agregado.");
-                        break;
-                    case 0:
-                        System.out.println("Saliendo...");
-                        break;
-                    default:
-                        System.out.println("Opción inválida, intenta nuevamente.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Entrada inválida. Por favor ingrese un número.");
-                sc.nextLine();
+            switch (opcionMenu) {
+                case 1: menuListas(sc); break;
+                case 2: menuPila(sc); break;
+                case 3: menuCola(sc); break;
+                case 4: System.out.println("Saliendo..."); break;
+                default: System.out.println("Opción no válida.");
             }
-        } while (option != 0);
+        } while (opcionMenu != 4);
 
         sc.close();
+    }
+
+    public static void menuListas(Scanner sc) {
+        System.out.println("\nElige tipo de lista:");
+        System.out.println("1. Simplemente ligada");
+        System.out.println("2. Doblemente ligada");
+        System.out.println("3. Circular");
+        int tipo = sc.nextInt();
+        boolean isDoubly = tipo == 2;
+        boolean isCircular = tipo == 3;
+
+        LinkedList<String> lista = new LinkedList<>(isDoubly, isCircular);
+
+        int opcion;
+        sc.nextLine();
+        do {
+            System.out.println("\n--- MENU LISTA ---");
+            System.out.println("1. Insertar");
+            System.out.println("2. Eliminar");
+            System.out.println("3. Mostrar");
+            System.out.println("4. Regresar");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingresa valor: ");
+                    String valor = sc.nextLine();
+                    lista.insert(valor); break;
+                case 2:
+                    System.out.print("Ingresa valor a eliminar: ");
+                    String eliminar = sc.nextLine();
+                    lista.delete(eliminar); break;
+                case 3: lista.display(); break;
+                case 4: System.out.println("Regresando..."); break;
+                default: System.out.println("Opción inválida");
+            }
+        } while (opcion != 4);
+    }
+
+    public static void menuPila(Scanner sc) {
+        Pila<String> pila = new Pila<>();
+        int opcion;
+        do {
+            System.out.println("\n--- MENU PILA ---");
+            System.out.println("1. Push");
+            System.out.println("2. Pop");
+            System.out.println("3. Peek");
+            System.out.println("4. Mostrar pila");
+            System.out.println("5. Regresar");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingresa valor: ");
+                    pila.push(sc.nextLine()); break;
+                case 2: System.out.println("Eliminado: " + pila.pop()); break;
+                case 3: System.out.println("Tope: " + pila.peek()); break;
+                case 4: pila.display(); break;
+                case 5: break;
+                default: System.out.println("Opción inválida");
+            }
+        } while (opcion != 5);
+    }
+
+    public static void menuCola(Scanner sc) {
+        Cola<String> cola = new Cola<>();
+        int opcion;
+        do {
+            System.out.println("\n--- MENU COLA ---");
+            System.out.println("1. Enqueue");
+            System.out.println("2. Dequeue");
+            System.out.println("3. Peek");
+            System.out.println("4. Mostrar cola");
+            System.out.println("5. Regresar");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            switch (opcion) {
+                case 1:
+                    System.out.print("Ingresa valor: ");
+                    cola.enqueue(sc.nextLine()); break;
+                case 2: System.out.println("Eliminado: " + cola.dequeue()); break;
+                case 3: System.out.println("Frente: " + cola.peek()); break;
+                case 4: cola.display(); break;
+                case 5: break;
+                default: System.out.println("Opción inválida");
+            }
+        } while (opcion != 5);
     }
 }
