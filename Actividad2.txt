@@ -1,0 +1,165 @@
+1. Objetivo del Programa
+
+El propósito de este proyecto es implementar diferentes estructuras de datos dinámicas en Java utilizando listas ligadas como base. A partir de ellas se construyen:
+Listas ligadas (simple, doble y circular).
+
+Pilas (Stack): estructura LIFO (Last In, First Out).
+
+Colas (Queue): estructura FIFO (First In, First Out).
+
+Además, se integra un menú en la clase Main que permite al usuario interactuar con estas estructuras, insertar y eliminar elementos, buscar datos y demostrar el manejo de tipos de datos simples y complejos.
+
+2. Estructura de Clases
+
+El sistema se divide en cuatro clases principales y dos adicionales:
+
+Node
+
+Representa el nodo básico de la lista.
+
+Contiene:
+
+Object data: dato almacenado (puede ser cualquier tipo de objeto).
+
+Node next: referencia al siguiente nodo.
+
+Node prev: referencia al nodo anterior (para listas dobles).
+
+LinkedList
+
+Clase base que implementa la lógica de las listas.
+
+Características:
+
+Puede configurarse como simple, doble o circular.
+
+Métodos principales:
+
+insertAtEnd(Object data) → inserta al final.
+
+delete(Object data) → elimina un nodo por valor.
+
+search(Object data) → busca un elemento.
+
+display() → muestra los elementos de la lista.
+
+Pila (Stack)
+
+Implementa la pila usando la lista ligada como base.
+
+Métodos principales:
+
+push(Object data) → agrega al tope de la pila.
+
+pop() → elimina y devuelve el último elemento insertado.
+
+peek() → devuelve el último elemento sin eliminarlo.
+
+Cola (Queue)
+
+Implementa la cola usando la lista ligada como base.
+
+Métodos principales:
+
+enqueue(Object data) → agrega un elemento al final.
+
+dequeue() → elimina y devuelve el primer elemento insertado.
+
+peek() → devuelve el primer elemento sin eliminarlo.
+
+DataTypeExamples
+
+Clase que demuestra el uso de diferentes tipos de datos dentro de las estructuras.
+
+Ejemplos:
+
+Tipos primitivos (int, double).
+
+Strings.
+
+Objetos complejos como Contacto (nombre, dirección, teléfono).
+
+Main
+
+Punto de entrada del programa.
+
+Implementa un menú interactivo en consola que permite:
+
+Seleccionar el tipo de lista (simple, doble, circular).
+
+Probar operaciones de pila y cola.
+
+Insertar, eliminar, buscar y mostrar elementos.
+
+Gestionar contactos como ejemplo de tipo de dato complejo.
+
+3. Flujo del Programa
+
+El usuario ejecuta el programa desde Main.
+
+Se muestra un menú con opciones:
+
+Gestionar Listas Ligadas (insertar, eliminar, mostrar, buscar).
+
+Gestionar Pila (push, pop, peek).
+
+Gestionar Cola (enqueue, dequeue, peek).
+
+Ejemplos de Tipos de Datos (primitivos y objetos).
+
+Gestión de Contactos (insertar, mostrar contactos).
+
+Según la elección del usuario, se llama a los métodos correspondientes en LinkedList, Pila o Cola.
+
+El sistema garantiza que al ingresar un valor no esperado, se vuelve al menú en lugar de cerrarse.
+
+4. Integración en un Sistema Simulado
+
+El programa puede utilizarse como base para un sistema operativo simulado, ya que:
+
+La cola puede representar procesos en espera.
+
+La pila puede modelar la ejecución de llamadas anidadas.
+
+Las listas pueden representar tablas dinámicas de recursos.
+
+5. Pruebas Realizadas
+Prueba de Listas Ligadas
+
+Insertar 3 elementos → mostrados en orden correcto.
+
+Eliminar un elemento → desaparece de la lista.
+
+Buscar un elemento → devuelve encontrado/no encontrado.
+
+Prueba de Pila
+
+Push(10), Push(20), Push(30) → Peek devuelve 30.
+
+Pop() → devuelve 30, Peek ahora devuelve 20.
+
+Prueba de Cola
+
+Enqueue(1), Enqueue(2), Enqueue(3) → Peek devuelve 1.
+
+Dequeue() → devuelve 1, Peek ahora devuelve 2.
+
+Prueba de Contactos
+
+Crear Contacto("Ana", "Calle A", "555-1234").
+
+Insertar en la lista.
+
+Mostrar → despliega nombre, dirección y teléfono.
+
+6. Conclusiones
+
+Se implementaron correctamente listas simples, dobles y circulares.
+
+Se construyeron pila y cola a partir de la lista ligada.
+
+El programa soporta datos primitivos, cadenas y objetos complejos.
+
+Se integró un menú robusto que controla errores de entrada.
+
+El sistema puede ampliarse para simular gestión de procesos en un sistema operativo.

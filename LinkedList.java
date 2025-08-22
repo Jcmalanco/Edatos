@@ -1,13 +1,23 @@
+
+/**
+ * Implementa una lista ligada genérica que puede ser:
+ * - Simple
+ * - Doblemente ligada
+ * - Circular
+ * - Además se utilizo como base para Pila y Cola
+ */
 public class LinkedList<T> {
     private Node<T> head;
     private Node<T> tail;
     private final boolean isDoubly;
     private final boolean isCircular;
-
+    
+    //crea lista simple y no circular
     public LinkedList() {
         this(false, false);
     }
 
+    //Constructor con opciones de lista doble y circular
     public LinkedList(boolean isDoubly, boolean isCircular) {
         this.isDoubly = isDoubly;
         this.isCircular = isCircular;

@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int opcionMenu;
-
+        
+        // manu de opciones
         do {
             System.out.println("\n=== MENU PRINCIPAL ===");
             System.out.println("1. Listas Ligadas");
@@ -68,9 +69,9 @@ public class Main {
         Pila<String> pila = new Pila<>();
         int opcion;
         do {
-            System.out.println("\n--- MENU PILA ---");
+            System.out.println("\n--- MENU PILA ---"); //Actividad2
             System.out.println("1. Push");
-            System.out.println("2. Pop");
+            System.out.println("2. Pop/eliminar");
             System.out.println("3. Peek");
             System.out.println("4. Mostrar pila");
             System.out.println("5. Regresar");
@@ -80,9 +81,9 @@ public class Main {
                 case 1:
                     System.out.print("Ingresa valor: ");
                     pila.push(sc.nextLine()); break;
-                case 2: System.out.println("Eliminado: " + pila.pop()); break;
-                case 3: System.out.println("Tope: " + pila.peek()); break;
-                case 4: pila.display(); break;
+                case 2: System.out.println("Eliminado: " + pila.pop()); break; // elimina un elemento de la fila con un pop
+                case 3: System.out.println("Tope: " + pila.peek()); break; //muestra el ultimo valor
+                case 4: pila.display(); break; //muestra la fila entera
                 case 5: break;
                 default: System.out.println("Opción inválida");
             }
@@ -93,7 +94,7 @@ public class Main {
         Cola<String> cola = new Cola<>();
         int opcion;
         do {
-            System.out.println("\n--- MENU COLA ---");
+            System.out.println("\n--- MENU COLA ---"); //Actividad2
             System.out.println("1. Enqueue");
             System.out.println("2. Dequeue");
             System.out.println("3. Peek");
