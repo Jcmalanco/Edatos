@@ -2,15 +2,27 @@ package actividad3;
 
 public class FibonacciRecursivo {
 
-    // Función recursiva para calcular el enésimo número de Fibonacci
+    /**
+     * @param n posición en la serie (n >= 0)
+     * @return valor de Fibonacci en la posición n
+     */
     public static int fibonacci(int n) {
-        if (n == 0) return 0; // caso base
-        if (n == 1) return 1; // caso base
-        return fibonacci(n - 1) + fibonacci(n - 2); // caso recursivo
+        // Caso base: los dos primeros números
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        // Caso recursivo: Fibonacci(n) = Fibonacci(n-1) + Fibonacci(n-2)
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    public static void main(String[] args) {
-        int n = 10; // ejemplo: calcular el décimo número
-        System.out.println("Fibonacci de " + n + " es: " + fibonacci(n));
+    
+    //Imprime todos los valores de Fibonacci desde 0 hasta n.
+    
+    public static void imprimirSerie(int n) {
+        System.out.println("Serie de Fibonacci hasta " + n + ":");
+        for (int i = 0; i <= n; i++) {
+            System.out.print(fibonacci(i) + " ");
+        }
+        System.out.println(); // salto de línea
     }
 }

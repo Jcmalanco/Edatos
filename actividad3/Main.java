@@ -32,11 +32,13 @@ public class Main {
 
     // Ejecutar Fibonacci
     private static void ejecutarFibonacci(Scanner sc) {
-        System.out.print("Introduce n para calcular Fibonacci(n): ");
-        int n = sc.nextInt();
-        int resultado = FibonacciRecursivo.fibonacci(n);
-        System.out.println("Fibonacci(" + n + ") = " + resultado);
-    }
+    System.out.print("Introduce n para mostrar la serie de Fibonacci hasta n: ");
+    int n = sc.nextInt();
+
+    // Llamamos al método que imprime toda la serie hasta n
+    FibonacciRecursivo.imprimirSerie(n);
+}
+
 
     // Ejecutar Subset Sum
     private static void ejecutarSubsetSum(Scanner sc) {
