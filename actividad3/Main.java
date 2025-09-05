@@ -46,9 +46,9 @@ public class Main {
 
         boolean existe = SubsetSum.subsetSum(conjunto, conjunto.length, target);
         if (existe) {
-            System.out.println("✅ Sí existe un subconjunto que suma " + target);
+            System.out.println("Sí existe un subconjunto que suma " + target);
         } else {
-            System.out.println("❌ No existe subconjunto que sume " + target);
+            System.out.println("No existe subconjunto que sume " + target);
         }
     }
 
@@ -67,10 +67,10 @@ public class Main {
         };
 
         if (SudokuSolver.solveSudoku(board)) {
-            System.out.println("✅ Sudoku resuelto:");
+            System.out.println("Sudoku resuelto:");
             SudokuSolver.printBoard(board);
         } else {
-            System.out.println("❌ No existe solución para este Sudoku.");
+            System.out.println("No existe solución para este Sudoku.");
         }
     }
 }
